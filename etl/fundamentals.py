@@ -2,7 +2,7 @@ import requests
 import os
 from dotenv import load_dotenv
 load_dotenv()
-import json
+import simplejson
 
 class Fundamentals():
     def __init__(self, token, symbol):
@@ -13,5 +13,14 @@ class Fundamentals():
         return None
 
     def run(self):
-        return print(self.response.json())
+         print(self.response.json())
 
+
+def import_fundamentals():
+    token = os.environ.get("api_key")
+    symbol = "MSFT"
+    p = Fundamentals(token=token, symbol=symbol)
+    p.run()
+
+
+import_fundamentals()
